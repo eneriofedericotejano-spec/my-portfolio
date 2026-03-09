@@ -17,7 +17,7 @@ import kotlinIcon from "./images/kotlin.png";
 import qcuImg from "./images/qcu.jpg";
 import vetImg from "./images/vet.jpg";
 import brewImg from "./images/brewtopia.png";
-import myPhoto from "./images/myphoto.jpg";
+import me from "./images/enerio.jpeg"
 
 // ── STYLES ────────────────────────────────────────────────────────────────────
 const styles = `
@@ -305,10 +305,29 @@ const TECH_STACKS = [
   { icon: kotlinIcon,    name: "Kotlin" },
 ];
 
+const GitHubIcon = () => (
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+  </svg>
+);
+
+const EmailIcon = () => (
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="4" width="20" height="16" rx="2"/>
+    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+  </svg>
+);
+
+const FacebookIcon = () => (
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+    <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+  </svg>
+);
+
 const SOCIALS = [
-  { icon: "🐙", label: "GitHub",   handle: "github.com/eneriofedericotejano-spec", href: "https://github.com/eneriofedericotejano-spec" },
-  { icon: "✉️", label: "Email",    handle: "enerio.federico.tejano@gmail.com",     href: "mailto:enerio.federico.tejano@gmail.com" },
-  { icon: "📘", label: "Facebook", handle: "facebook.com/federico.enerio.9",       href: "https://www.facebook.com/federico.enerio.9" },
+  { icon: <GitHubIcon />,   label: "GitHub",   handle: "github.com/eneriofedericotejano-spec", href: "https://github.com/eneriofedericotejano-spec", color: "#e6f4ef", bg: "rgba(230,244,239,.08)" },
+  { icon: <EmailIcon />,    label: "Email",    handle: "enerio.federico.tejano@gmail.com",     href: "mailto:enerio.federico.tejano@gmail.com",     color: "#34d399", bg: "rgba(52,211,153,.08)"  },
+  { icon: <FacebookIcon />, label: "Facebook", handle: "facebook.com/federico.enerio.9",       href: "https://www.facebook.com/federico.enerio.9",  color: "#93c5fd", bg: "rgba(59,130,246,.08)"  },
 ];
 
 // ── HOOK ──────────────────────────────────────────────────────────────────────
@@ -333,7 +352,7 @@ function Nav() {
   const [open, setOpen] = useState(false);
   return (
     <nav>
-      <div className="nav-logo">Port<span>.</span>folio</div>
+      <div className="nav-logo">Federico's<span>.</span>Haven</div>
       <ul className={`nav-links${open ? " open" : ""}`}>
         {NAV_LINKS.map(l => (
           <li key={l}><a href={`#${l.toLowerCase()}`} onClick={() => setOpen(false)}>{l}</a></li>
@@ -369,7 +388,7 @@ function Hero() {
       <div className="hero-img-wrap">
         <div className="hero-img-bg">
           {/* ✅ Uses imported myPhoto — not a string path */}
-          <img src={myPhoto} alt="Federico T. Enerio Jr." />
+          <img src={me} alt="Federico T. Enerio Jr." />
         </div>
         <div className="hero-badge">
           <div className="hero-badge-dot" />
@@ -523,7 +542,7 @@ function Contact() {
         <div className="contact-info fade-in" ref={ref}>
           <div className="section-tag">Contact</div>
           <h2 className="display">Let's work together</h2>
-          <p>Have a project in mind or just want to say hello? I'd love to hear from you. Fill out the form or reach me on any of my socials.</p>
+          <p>Have an idea, collaboration, or opportunity in mind? Feel free to reach out. I'm always open to meaningful conversations.</p>
           <div className="social-links">
             {SOCIALS.map((s, i) => (
               <a href={s.href} className="social-link" key={i} target="_blank" rel="noreferrer">
